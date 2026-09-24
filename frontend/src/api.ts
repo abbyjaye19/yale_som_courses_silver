@@ -1,4 +1,8 @@
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:8000'
+const RAW_API_URL = import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:8000'
+
+// On Render, VITE_API_URL arrives as a bare hostname ("yale-som-api.onrender.com"),
+// so add the scheme when it is missing. Local dev already includes it.
+const API_URL = /^https?:\/\//.test(RAW_API_URL) ? RAW_API_URL : `https://${RAW_API_URL}`
 
 /** One row of data/yale_som_classes.json, as served by GET /api/courses. */
 export interface Course {
