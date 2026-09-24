@@ -4,3 +4,6 @@ __pycache__/
 node_modules/
 *.zip
 *.db
+
+# Ship the course database (needed by the agent search tool)
+!data/yale_som.db
